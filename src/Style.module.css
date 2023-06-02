@@ -160,7 +160,7 @@
 }
 
 .castItem {
-  flex-basis: calc((100% - 20px) / 4);
+  flex-basis: calc((100% - 20px) / 6);
 }
 .review {
   padding-left: 50px;
