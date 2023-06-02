@@ -1,0 +1,81 @@
+.header {
+  background-color: #000000;
+  border-bottom: 1px solid #ececec;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 100px;
+}
+.navigationList {
+  display: flex;
+  gap: 30px;
+}
+.navigationSpan {
+  font-size: 30px;
+  text-decoration: none;
+  color: white;
+}
+
+.container {
+  width: 500px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: 50px;
+  margin-bottom: 150px;
+}
+
+.trendList {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.trendSpan {
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+}
+.trendItem:hover {
+  background-color: darkkhaki;
+}
+
+.from {
+  margin-top: 30px;
+}
+.fromInput {
+  background-color: rgba(252, 252, 252);
+  border: 3px solid black;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+  height: 30px;
+  outline: none;
+  padding: 5px;
+  width: 300px;
+}
+
+.fromLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.btnSubmit {
+  border: 3px solid black;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: black;
+  cursor: pointer;
+  display: block;
+  font-size: 20px;
+  padding: 5px;
+  transition: border-color 0.25s ease-in, color 0.25s ease-in;
+  width: 100px;
+  background-color: rgba(252, 252, 252);
+
+  margin-top: 10px;
+}

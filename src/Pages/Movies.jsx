@@ -3,6 +3,7 @@ import MovieList from 'components/MovieList/MovieList';
 import SerchMovie from 'components/Serch/SerchMovie';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import css from 'Style.module.css';
 
 const Movies = () => {
   const [serchName, setSerchName] = useState('');
@@ -53,10 +54,10 @@ const Movies = () => {
   }, [serchName]);
 
   return (
-    <>
+    <div className={css.container}>
       <SerchMovie onSubmit={handleSubmit} />
       <MovieList movie={movie} />
-    </>
+    </div>
   );
 };
 

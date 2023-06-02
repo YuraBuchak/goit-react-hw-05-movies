@@ -1,6 +1,7 @@
 import { fetchTrending } from 'Api/Api';
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import css from 'Style.module.css';
 
 const Home = () => {
   const [trends, setTrends] = useState([]);
@@ -26,20 +27,24 @@ const Home = () => {
   }, []);
 
   return (
-    <>
-      <h1>Trendings</h1>
-      <ul>
+    <div className={css.container}>
+      <h1 className={css.homeTitle}>Trendings</h1>
+      <ul className={css.trendList}>
         {trends?.map(({ id, title }) => {
           return (
-            <li key={id}>
-              <Link to={`movies/${id}`} state={{ from: location }}>
+            <li key={id} className={css.trendItem}>
+              <Link
+                to={`movies/${id}`}
+                state={{ from: location }}
+                className={css.trendSpan}
+              >
                 {title}
               </Link>
             </li>
           );
         })}
       </ul>
-    </>
+    </div>
   );
 };
 
