@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const AboutMovie = ({ details }) => {
   const { title, overview, genres, poster_path, vote_average, release_date } =
@@ -48,3 +49,19 @@ const AboutMovie = ({ details }) => {
 };
 
 export default AboutMovie;
+
+AboutMovie.propTypes = {
+  details: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    overview: PropTypes.string.isRequired,
+    genres: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+      })
+    ),
+    poster_path: PropTypes.string.isRequired,
+    vote_average: PropTypes.number.isRequired,
+    release_date: PropTypes.string.isRequired,
+  }).isRequired,
+};

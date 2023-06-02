@@ -29,3 +29,7 @@ const SerchMovie = ({ onSubmit }) => {
 };
 
 export default SerchMovie;
+
+SerchMovie.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
