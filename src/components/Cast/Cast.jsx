@@ -26,7 +26,7 @@ const Cast = () => {
       }
     }
     fetch();
-  }, []);
+  }, [movieId]);
 
   return (
     <>

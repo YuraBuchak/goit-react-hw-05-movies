@@ -8,7 +8,7 @@ const Movies = () => {
   const [serchName, setSerchName] = useState('');
   const [movie, setMovie] = useState([]);
 
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const query = searchParams.get('query');
 
   const handleSubmit = name => {

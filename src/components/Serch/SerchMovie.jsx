@@ -1,4 +1,5 @@
 import { useSearchParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const SerchMovie = ({ onSubmit }) => {
   const [searchParams, setSearchParams] = useSearchParams();
