@@ -1,5 +1,6 @@
 import { fetchCredits } from 'Api/Api';
 import { useEffect, useState } from 'react';
+import css from 'Style.module.css';
 
 const { useParams } = require('react-router-dom');
 
@@ -30,11 +31,12 @@ const Cast = () => {
 
   return (
     <>
-      <ul>
+      <ul className={css.castList}>
         {cast?.map(({ name, character, profile_path, id }) => (
-          <div key={id}>
+          <li className={css.castItem} key={id}>
             <div>
               <img
+                className={css.castImg}
                 src={
                   profile_path
                     ? `https://image.tmdb.org/t/p/w200/${profile_path}`
@@ -42,10 +44,10 @@ const Cast = () => {
                 }
                 alt={name}
               />
-              <p>{name}</p>
-              <p>Character: {character}</p>
+              <p className={css.castListInfo}>{name}</p>
+              <p className={css.castListInfo}>Character: {character}</p>
             </div>
-          </div>
+          </li>
         ))}
       </ul>
     </>

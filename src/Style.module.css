@@ -139,3 +139,42 @@
   text-decoration: none;
   color: darkkhaki;
 }
+.castList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  text-align: center;
+  margin-top: 50px;
+  list-style: none;
+}
+
+.castImg {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.castListInfo {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.castItem {
+  flex-basis: calc((100% - 20px) / 4);
+}
+.review {
+  max-width: 1200px;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.reviewTitle {
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 50px;
+}
+
+.reviewInfo {
+  font-size: 20px;
+}
