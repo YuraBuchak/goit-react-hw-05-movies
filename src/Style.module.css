@@ -177,3 +177,8 @@
 .reviewInfo {
   font-size: 20px;
 }
+
+.suspense {
+  font-size: 25px;
+  font-weight: bold;
+}

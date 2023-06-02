@@ -46,7 +46,7 @@ const AboutMovie = ({ details }) => {
           </li>
         </ul>
       </div>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div className={css.suspense}>Loading...</div>}>
         <Outlet />
       </Suspense>
     </>
