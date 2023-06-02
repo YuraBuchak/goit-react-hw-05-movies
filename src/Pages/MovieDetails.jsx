@@ -2,6 +2,7 @@ import { fetchMovieDetailsById } from 'Api/Api';
 import AboutMovie from 'components/AboutMovie/AboutMovie';
 import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
+import css from 'Style.module.css';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -42,7 +43,9 @@ const MovieDetails = () => {
   //   console.log(details);
   return (
     <>
-      <Link to={btnBack.current}>Back</Link>
+      <Link to={btnBack.current} className={css.btnBack}>
+        Back
+      </Link>
       <AboutMovie details={details} />
     </>
   );

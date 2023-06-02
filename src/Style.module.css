@@ -79,3 +79,63 @@
 
   margin-top: 10px;
 }
+
+.btnBack {
+  border: 3px solid black;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: black;
+  cursor: pointer;
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 5px;
+  transition: border-color 0.25s ease-in, color 0.25s ease-in;
+  width: 100px;
+  background-color: rgba(252, 252, 252);
+  text-decoration: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 50px;
+
+  text-align: center;
+}
+
+.imgFilm {
+  width: 350px;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.detailsWrapper {
+  display: flex;
+  gap: 25px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.subTitleDetails {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.titleDetails {
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+.infoDetails {
+  font-size: 20px;
+}
+
+.subTitleAddition {
+  margin-left: 50px;
+}
+
+.extraPage {
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: darkkhaki;
+}

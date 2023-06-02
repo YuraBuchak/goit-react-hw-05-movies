@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import css from 'Style.module.css';
 // import PropTypes from 'prop-types';
 
 const AboutMovie = ({ details }) => {
@@ -12,32 +13,36 @@ const AboutMovie = ({ details }) => {
   const rate = Math.round(Number(vote_average) * 10);
   return (
     <>
-      <div>
-        <img src={Img} alt={title} />
+      <div className={css.detailsWrapper}>
+        <img src={Img} alt={title} className={css.imgFilm} />
         {/* <img src={poster_path ? Img : defaultImg} alt={title} /> */}
         <div>
-          <h3>
+          <h3 className={css.titleDetails}>
             {title} ({release_date})
           </h3>
-          <p>User score: {rate}%</p>
-          <h4>Overview</h4>
-          <p>{overview}</p>
-          <h5>Genres:</h5>
-          <p>
+          <p className={css.infoDetails}>User score: {rate}%</p>
+          <h4 className={css.subTitleDetails}>Overview</h4>
+          <p className={css.infoDetails}>{overview}</p>
+          <h5 className={css.subTitleDetails}>Genres:</h5>
+          <p className={css.infoDetails}>
             {genres?.map(({ id, name }) => (
               <span key={id}> {name}</span>
             ))}
           </p>
         </div>
       </div>
-      <div>
-        <h4>Additional information</h4>
+      <div className={css.subTitleAddition}>
+        <h4 className={css.subTitleDetails}>Additional information</h4>
         <ul>
           <li>
-            <Link to={'cast'}>Cast</Link>
+            <Link className={css.extraPage} to={'cast'}>
+              Cast
+            </Link>
           </li>
           <li>
-            <Link to={'reviews'}>Revievs</Link>
+            <Link className={css.extraPage} to={'reviews'}>
+              Revievs
+            </Link>
           </li>
         </ul>
       </div>
