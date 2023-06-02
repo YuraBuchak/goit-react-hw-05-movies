@@ -1,11 +1,14 @@
 import { fetchMovieDetailsById } from 'Api/Api';
 import AboutMovie from 'components/AboutMovie/AboutMovie';
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import { Link, useLocation, useParams } from 'react-router-dom';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
   const [details, setDetails] = useState('');
+
+  const location = useLocation();
+  const btnBack = useRef(location.state?.from ?? '/movies');
 
   useEffect(() => {
     async function fetch() {
@@ -35,9 +38,14 @@ const MovieDetails = () => {
       }
     }
     fetch();
-  }, []);
+  }, [movieId]);
   //   console.log(details);
-  return <AboutMovie details={details} />;
+  return (
+    <>
+      <Link to={btnBack.current}>Back</Link>
+      <AboutMovie details={details} />
+    </>
+  );
 };
 
 export default MovieDetails;

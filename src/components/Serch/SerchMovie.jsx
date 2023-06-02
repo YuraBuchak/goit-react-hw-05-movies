@@ -4,7 +4,7 @@ const SerchMovie = ({ onSubmit }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query') ?? '';
 
-  const updateQueryString = event => {
+  const updateQueryUrl = event => {
     if (event.target.value === '') {
       return setSearchParams({});
     }
@@ -22,7 +22,7 @@ const SerchMovie = ({ onSubmit }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" value={query} onChange={updateQueryString} />
+      <input type="text" value={query} onChange={updateQueryUrl} />
       <button type="submit">Search</button>
     </form>
   );

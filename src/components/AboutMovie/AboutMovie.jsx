@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 
 const AboutMovie = ({ details }) => {
@@ -5,13 +6,14 @@ const AboutMovie = ({ details }) => {
     details;
 
   const Img = `https://image.tmdb.org/t/p/w500/${poster_path}`;
-  const defaultImg =
-    'https://cdn-icons-png.flaticon.com/512/758/758732.png?w=740&t=st=1685548023~exp=1685548623~hmac=5a38f26a8fb5051fdd8b73bf82dd2cf5ba04af6209eae24587bc748010483bce';
+  // const defaultImg =
+  //   'https://cdn-icons-png.flaticon.com/512/758/758732.png?w=740&t=st=1685548023~exp=1685548623~hmac=5a38f26a8fb5051fdd8b73bf82dd2cf5ba04af6209eae24587bc748010483bce';
   const rate = Math.round(Number(vote_average) * 10);
   return (
     <>
       <div>
-        <img src={poster_path ? Img : defaultImg} alt={title} />
+        <img src={Img} alt={title} />
+        {/* <img src={poster_path ? Img : defaultImg} alt={title} /> */}
         <div>
           <h3>
             {title} ({release_date})
@@ -38,7 +40,9 @@ const AboutMovie = ({ details }) => {
           </li>
         </ul>
       </div>
-      <Outlet />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };

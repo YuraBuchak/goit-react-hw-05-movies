@@ -1,9 +1,10 @@
 import { fetchTrending } from 'Api/Api';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Home = () => {
   const [trends, setTrends] = useState([]);
+  const location = useLocation();
 
   useEffect(() => {
     async function fetch() {
@@ -31,7 +32,9 @@ const Home = () => {
         {trends?.map(({ id, title }) => {
           return (
             <li key={id}>
-              <Link to={`movies/${id}`}>{title}</Link>
+              <Link to={`movies/${id}`} state={{ from: location }}>
+                {title}
+              </Link>
             </li>
           );
         })}
