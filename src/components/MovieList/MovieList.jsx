@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import css from 'Style.module.css';
+import PropTypes from 'prop-types';
 
 const MovieList = ({ movie, locationBack }) => {
   return (
@@ -21,11 +22,12 @@ const MovieList = ({ movie, locationBack }) => {
 
 export default MovieList;
 
-// MovieList.propTypes = {
-//   movie: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.number.isRequired,
-//       title: PropTypes.string.isRequired,
-//     })
-//   ),
-// };
+MovieList.propTypes = {
+  movie: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+    })
+  ),
+  locationBack: PropTypes.object.isRequired,
+};

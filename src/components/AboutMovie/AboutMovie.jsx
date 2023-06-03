@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import css from 'Style.module.css';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const defaultImg =
   'https://cdn-icons-png.flaticon.com/512/758/758732.png?w=740&t=st=1685548023~exp=1685548623~hmac=5a38f26a8fb5051fdd8b73bf82dd2cf5ba04af6209eae24587bc748010483bce';
@@ -59,18 +59,18 @@ const AboutMovie = ({ details }) => {
 
 export default AboutMovie;
 
-// AboutMovie.propTypes = {
-//   details: PropTypes.shape({
-//     title: PropTypes.string.isRequired,
-//     overview: PropTypes.string.isRequired,
-//     genres: PropTypes.arrayOf(
-//       PropTypes.shape({
-//         id: PropTypes.number.isRequired,
-//         name: PropTypes.string.isRequired,
-//       })
-//     ),
-//     poster_path: PropTypes.string.isRequired,
-//     vote_average: PropTypes.number.isRequired,
-//     release_date: PropTypes.string.isRequired,
-//   }).isRequired,
-// };
+AboutMovie.propTypes = {
+  details: PropTypes.shape({
+    title: PropTypes.string,
+    overview: PropTypes.string,
+    genres: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number,
+        name: PropTypes.string,
+      })
+    ),
+    poster_path: PropTypes.string,
+    vote_average: PropTypes.number,
+    release_date: PropTypes.string,
+  }).isRequired,
+};
