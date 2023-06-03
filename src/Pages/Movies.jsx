@@ -2,18 +2,17 @@ import { fetchSearchMovies } from 'Api/Api';
 import MovieList from 'components/MovieList/MovieList';
 import SerchMovie from 'components/Serch/SerchMovie';
 import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import css from 'Style.module.css';
 
 const Movies = () => {
-  const [serchName, setSerchName] = useState('');
   const [movie, setMovie] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const location = useLocation();
+  const query = searchParams.get('query') ?? '';
 
-  const [searchParams] = useSearchParams();
-  const query = searchParams.get('query');
-
-  const handleSubmit = name => {
-    setSerchName(name);
+  const handleSubmit = query => {
+    setSearchParams({ query: query });
   };
 
   useEffect(() => {
@@ -32,31 +31,12 @@ const Movies = () => {
       }
     }
     fetch();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
-    async function fetch() {
-      try {
-        if (serchName === '') return;
-
-        const { results } = await fetchSearchMovies(serchName);
-
-        const filteredMovie = results.map(({ title, id }) => {
-          return { title, id };
-        });
-        setMovie(filteredMovie);
-      } catch (error) {
-        console.warn(error);
-      }
-    }
-    fetch();
-  }, [serchName]);
+  }, [query]);
 
   return (
     <div className={css.container}>
       <SerchMovie onSubmit={handleSubmit} />
-      <MovieList movie={movie} />
+      <MovieList movie={movie} locationBack={location} />
     </div>
   );
 };

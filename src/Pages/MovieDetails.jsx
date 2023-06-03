@@ -32,15 +32,13 @@ const MovieDetails = () => {
         };
 
         setDetails(movieDetails);
-
-        // console.log(movieDetails);
       } catch (error) {
         console.warn(error);
       }
     }
     fetch();
   }, [movieId]);
-  //   console.log(details);
+
   return (
     <>
       <Link to={btnBack.current} className={css.btnBack}>

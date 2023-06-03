@@ -1,21 +1,11 @@
-import { useSearchParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import css from 'Style.module.css';
 
 const SerchMovie = ({ onSubmit }) => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const query = searchParams.get('query') ?? '';
-
-  const updateQueryUrl = event => {
-    if (event.target.value === '') {
-      return setSearchParams({});
-    }
-    setSearchParams({ query: event.target.value });
-  };
-
   const handleSubmit = event => {
     event.preventDefault();
-    if (query.trim() === '') {
+    const query = event.target.elements.input.value;
+    if (query === '') {
       window.alert('Write smth!');
       return;
     }
@@ -25,12 +15,7 @@ const SerchMovie = ({ onSubmit }) => {
   return (
     <form className={css.from} onSubmit={handleSubmit}>
       <label className={css.fromLabel}>
-        <input
-          className={css.fromInput}
-          type="text"
-          value={query}
-          onChange={updateQueryUrl}
-        />
+        <input className={css.fromInput} type="text" name="input" />
       </label>
 
       <button className={css.btnSubmit} type="submit">

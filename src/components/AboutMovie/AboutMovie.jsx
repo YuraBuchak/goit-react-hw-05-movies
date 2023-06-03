@@ -3,19 +3,23 @@ import { Link, Outlet } from 'react-router-dom';
 import css from 'Style.module.css';
 // import PropTypes from 'prop-types';
 
+const defaultImg =
+  'https://cdn-icons-png.flaticon.com/512/758/758732.png?w=740&t=st=1685548023~exp=1685548623~hmac=5a38f26a8fb5051fdd8b73bf82dd2cf5ba04af6209eae24587bc748010483bce';
+
 const AboutMovie = ({ details }) => {
   const { title, overview, genres, poster_path, vote_average, release_date } =
     details;
 
-  const Img = `https://image.tmdb.org/t/p/w500/${poster_path}`;
-  // const defaultImg =
-  //   'https://cdn-icons-png.flaticon.com/512/758/758732.png?w=740&t=st=1685548023~exp=1685548623~hmac=5a38f26a8fb5051fdd8b73bf82dd2cf5ba04af6209eae24587bc748010483bce';
+  const img = `https://image.tmdb.org/t/p/w500/${poster_path}`;
   const rate = Math.round(Number(vote_average) * 10);
   return (
     <>
       <div className={css.detailsWrapper}>
-        <img src={Img} alt={title} className={css.imgFilm} />
-        {/* <img src={poster_path ? Img : defaultImg} alt={title} /> */}
+        <img
+          src={poster_path ? img : defaultImg}
+          alt={title}
+          className={css.imgFilm}
+        />
         <div>
           <h3 className={css.titleDetails}>
             {title} ({release_date})
